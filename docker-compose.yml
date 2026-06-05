@@ -1,0 +1,42 @@
+services:
+  traceai-backend:
+    build:
+      context: ./traceai-backend
+      dockerfile: Dockerfile
+    container_name: traceai-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./data/traceai.db
+      - SECRET_KEY=traceai-demo-secret-change-in-production
+      - CORS_ORIGINS=http://localhost:3000
+      - AI_MATCH_THRESHOLD=0.70
+    volumes:
+      - traceai_data:/app/data
+      - traceai_uploads:/app/uploads
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  traceai-frontend:
+    build:
+      context: ./traceai
+      dockerfile: Dockerfile
+    container_name: traceai-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      traceai-backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  traceai_data:
+  traceai_uploads:
