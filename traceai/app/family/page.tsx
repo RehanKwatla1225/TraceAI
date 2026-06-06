@@ -97,7 +97,7 @@ export default function FamilyDashboard() {
           <div className="lg:col-span-2 space-y-6">
             <div className="flex items-center justify-between">
               <h2 className="text-xl font-bold font-heading">Active Cases</h2>
-              <Link href="/family/cases" className="text-sm font-medium text-[#1428A0] hover:underline">
+              <Link href="/family" className="text-sm font-medium text-[#1428A0] hover:underline">
                 View All
               </Link>
             </div>
