@@ -24,7 +24,7 @@ class Settings(BaseSettings):
     # Server
     HOST: str = "0.0.0.0"
     PORT: int = 8000
-    CORS_ORIGINS: str = "http://localhost:3000,http://localhost:3001,https://traceai-mauve.vercel.app"
+   CORS_ORIGINS: str = "http://localhost:3000,http://localhost:3001,https://traceai-mauve.vercel.app"
     # Email (optional)
     SMTP_HOST: str = ""
     SMTP_PORT: int = 587
