@@ -31,7 +31,7 @@ services:
     environment:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1
-      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXT_PUBLIC_API_URL=https://traceai-production-0050.up.railway.app
     depends_on:
       traceai-backend:
         condition: service_healthy
