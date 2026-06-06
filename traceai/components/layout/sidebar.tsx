@@ -42,13 +42,13 @@ const sidebarNav: SidebarNavItem[] = [
   },
   {
     title: "My Cases",
-    href: "/family/cases",
+    href: "/family",
     icon: FileText,
     roles: ["family"],
   },
   {
     title: "Case Search",
-    href: "/family/search",
+    href: "/family",
     icon: Search,
     roles: ["family", "citizen", "authority"],
   },
